@@ -1,0 +1,32 @@
+<h2>Edit Game</h2>
+
+<form method="post" action="/games/<%= @game.id%>">
+    <input type="hidden" name="_method" value="patch">
+    
+    <label for="name">Game Name:</label>
+    <input type="text" name="name" value="<%= @game.name%>">
+
+    <br><br>
+
+    <label for="platform">Platform: </label>
+    <input type="text" name="platform" value="<%= @game.platform%>">
+
+    <br><br>
+
+    <label for="mode">Mode:</label>
+    <input type="text" name="mode" value="<%= @game.mode%>">
+
+    <br><br>
+
+    <input type="submit" value="Edit">
+</form>
+
+<h4>----OR----</h4>
+
+<!-- <h2>Delete Game</h2> -->
+<form method="post" action="/games/<%= @game.id%>/delete">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+</form>
+
+<a href="/games">Go Back</a>
