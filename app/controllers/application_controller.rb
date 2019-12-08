@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do
-        "<h1>Hello, World</h1>"
+        erb :home
     end
 
     get '/failure' do
