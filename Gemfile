@@ -15,6 +15,8 @@ gem 'pry'
 gem 'shotgun'
 gem 'bcrypt'
 gem 'thin' # A thin and fast web server
+gem 'sinatra-flash'
+
 
 
 group :test do

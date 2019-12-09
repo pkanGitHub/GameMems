@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
         if user.save
             redirect '/login'
         else
-            @errors = ["Signup failed"]
-            erb :failure
+            flash[:error] = "Couldn't create the account"
+            redirect "/signup"
         end
     end
 
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
     get '/logout' do
         session.clear
-        redirect '/login'
+        redirect '/'
     end
 
     post '/login' do
@@ -28,7 +28,8 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id 
             redirect to '/games'
         else
-            redirect to '/login'
+            flash[:alert] = "Incorrect username or password"
+            redirect "/login"
         end
     end
 
