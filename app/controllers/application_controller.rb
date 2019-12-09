@@ -5,45 +5,8 @@ class ApplicationController < Sinatra::Base
         set :session_secret, "password_security"
     end
 
-    get '/' do
+    get "/" do
         erb :home
-    end
-
-    get '/failure' do
-        erb :failure
-    end
-
-    get '/signup' do
-        erb :signup
-    end
-
-    post '/signup' do
-        user = User.new(user_params)
-        if user.save
-            redirect '/login'
-        else
-            @errors = ["Signup failed"]
-            erb :failure
-        end
-    end
-
-    get '/login' do
-        erb :login
-    end
-
-    get '/logout' do
-        session.clear
-        redirect '/login'
-    end
-
-    post '/login' do
-        user = User.find_by(username: params[:username])
-        if user && user.authenticate(params[:password])
-            session[:user_id] = user.id 
-            redirect to '/games'
-        else
-            redirect to '/login'
-        end
     end
 
     helpers do 
@@ -53,7 +16,7 @@ class ApplicationController < Sinatra::Base
 
         def redirect_if_not_logged_in
             unless logged_in?
-                redirect '/login'
+                redirect '/sessions/login'
             end
         end
 
@@ -61,11 +24,4 @@ class ApplicationController < Sinatra::Base
             User.find(session[:user_id])
         end
     end
-
-    private
-    
-    def user_params
-        {username: params[:username], password: params[:password]}
-    end
-
 end

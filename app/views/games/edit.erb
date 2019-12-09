@@ -7,15 +7,20 @@
     <input type="text" name="name" value="<%= @game.name%>">
 
     <br><br>
-
-    <label for="platform">Platform: </label>
-    <input type="text" name="platform" value="<%= @game.platform%>">
+    <label for="platform">Select a Platform:</label><br><br>
+    <input type="radio" name="platform" value="Online Game">Online Game <br> 
+    <input type="radio" name="platform" value="Mobile Game">Mobile Game <br>  
+    <input type="radio" name="platform" value="Console Game">Console Game <br>
+    <input type="radio" name="platform" value="PC Game">PC Game <br>  
+    <input type="radio" name="platform" value="Board Game">Board Game <br>
+    <input type="radio" name="platform" value="Drinking Game">Drinking Game <br>  
 
     <br><br>
 
-    <label for="mode">Mode:</label>
-    <input type="text" name="mode" value="<%= @game.mode%>">
-
+    <label for="mode">Select A Mode:</label><br><br>
+    <input type="radio" name="mode" value="Single Player">Single Player <br>  
+    <input type="radio" name="mode" value="Multiplayer">Multiplayer <br> 
+    <input type="radio" name="mode" value="Massively Multiplayer">Massively Multiplayer <br>
     <br><br>
 
     <input type="submit" value="Edit">

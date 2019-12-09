@@ -1,16 +1,22 @@
-<h1>Your Game Collections</h1>
-
-<ul>
-    <% @games.each do |game| %>
-        <li>
-            <a href="/games/<%= game.id%>/edit"> 
-                "<%= game.name%>" (<%= game.mode%>)
-            </a>
-        </li>
-    <% end %>
-</ul>
-
-<a href="/games/new">Add Game</a>
-<a href="/logout">Log Out</a>
-
-
+<h1>Game List</h1>
+<h4>*Click On the Game Name To Modify*</h4>
+<a href="/games/new"><button type="button">Add a new game</button></a>
+<p>
+<table>
+    <thead>
+        <tr> 
+            <th colspan="1">Name</th>
+            <th colspan="1">Platform</th>
+            <th colspan="1">Mode</th>
+       </tr>
+     </thead>
+    <tbody>
+        <% @games.each do |game| %>
+            <tr>
+                <td colspan="1"><a href="/games/<%= game.id%>/edit"><%= game.name.titlecase %></a></td>
+                <td colspan="1"><%= game.platform %></td>
+                <td colspan="1"><%= game.mode %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
