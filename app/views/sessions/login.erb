@@ -1,15 +1,52 @@
-<h2>Login</h2>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<form method="post" action="/login">
-    <label for="username">Username:</label>
-    <input type="text" name="username">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 
-    <br><br>
+    <title>Login</title>
+</head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">GameMems  <i class="fas fa-gamepad"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/games">List <i class="far fa-list-alt"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    <label for="password">Password:</label>
-    <input type="password" name="password">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h2>Login</h2>
+                    <% if flash[:warning] %>
+                        <div class="alert alert-warning" role="alert">
+                            <div class="warning"><%= flash[:warning] %></div>
+                        </div>
+                    <% end %>
+                <form method="post" action="/login">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username">
 
-    <br><br>
+                    <br><br>
 
-    <input type="submit" value="Log In">
-</form>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password">
+
+                    <br><br>
+
+                    <input type="submit" value="Log In">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

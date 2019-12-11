@@ -16,6 +16,7 @@ class GamesController < ApplicationController
         if game.save
             redirect to '/games'
         else
+            #game already exist
             @errors = [params.to_s]
             erb :failure
         end
@@ -34,7 +35,7 @@ class GamesController < ApplicationController
         if @game.update(game_params)
             redirect '/games'
         else
-            flash[:alert] = "Cannot Update"
+            flash[:error] = "Cannot Update"
             redirect '/games/edit'
         end
     end
@@ -54,7 +55,7 @@ class GamesController < ApplicationController
     def set_game
         @game = Game.find_by(id: params[:id])
         unless @game
-            flash[:alert] = "Cannot find game ID"
+            flash[:error] = "Cannot find game ID"
             redirect '/'
         end
     end

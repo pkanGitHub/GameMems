@@ -1,27 +1,66 @@
-<h1>Game List</h1>
-<h4>*Click On the Game Name To Modify*</h4>
-<a href="/games/new"><button type="button">Add a new game</button></a>
-<p>
-<table>
-    <thead>
-        <tr> 
-            <th colspan="1">Name</th>
-            <th colspan="1">Platform</th>
-            <th colspan="1">Mode</th>
-       </tr>
-     </thead>
-    <tbody>
-        <% @games.each do |game| %>
-            <tr>
-                <td colspan="1"><a href="/games/<%= game.id%>/edit"><%= game.name.titlecase %></a></td>
-                <td colspan="1"><%= game.platform %></td>
-                <td colspan="1"><%= game.mode %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 
-<br><br>
+    <title>Game List</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">GameMems <i class="fas fa-gamepad"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/games">List <i class="far fa-list-alt"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i>  Log Out</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
 
-<button><a href="/logout">Log Out</a></button>
+        <h1 class="text-center">Your Game List</h1>
+        <div style="text-align:center">
+            <a href="/games/new"><button type="button" >Add a new game</button></a>
+        </div>
+        <p>
+        <h4 class="text-center">*Click On the Game Name To Modify*</h4>
+        <div class="container">
+            <div class="row">
+                <table class="table table table-hover table-bordered table-striped">
+                    <thead>
+                        <tr> 
+                            <th scope="col">Name</th>
+                            <th scope="col">Platform</th>
+                            <th scope="col">Mode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @games.each do |game| %>
+                            <tr>
+                                <td><a href="/games/<%= game.id%>/edit"><%= game.name.titlecase %></a></td>
+                                <td><%= game.platform %></td>
+                                <td><%= game.mode %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <br><br>
+</body>
+</html>

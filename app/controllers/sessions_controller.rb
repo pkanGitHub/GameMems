@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         if user.save
             redirect '/login'
         else
-            flash[:error] = "Couldn't create the account"
+            flash[:warning] = "Username already exist, choose another username!"
             redirect "/signup"
         end
     end
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
     get '/logout' do
         session.clear
-        redirect '/'
+        redirect '/login'
     end
 
     post '/login' do
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id 
             redirect to '/games'
         else
-            flash[:alert] = "Incorrect username or password"
+            flash[:warning] = "Incorrect username or password"
             redirect "/login"
         end
     end
