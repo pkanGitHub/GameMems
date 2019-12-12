@@ -1,4 +1,4 @@
-# GameCollection
+# GameMems
 
 This is a sinatra web app created to keep track of the games individual user played by adding:
 
