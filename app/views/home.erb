@@ -36,22 +36,27 @@
             </ul>
         </div>
     </nav>
-    <% if flash[:error] %>
-    <div class="alert alert-warning" role="alert">
-        <div class="error"><%= flash[:error] %></div>
-    </div>
-    <% end %>
-    <div class="container">
-        <div class="jumbotron text-center">
+    <div class="container-full-bg">
+        <% if flash[:error] %>
+        <div class="alert alert-warning text-left border border-warning mb-0" role="alert">
+            <div class="error"><%= flash[:error] %></div>
+        </div>
+        <% end %>
+        <div class="jumbotron min-vh-100 text-center">
             <h1 class="display-4">GameMems</h1>
             <h2 class="lead">Never Remember What Games You Played?</h2>
             <hr class="my-4">
             <p class>Keep Track Of The Games With GameMems</p>
             <a class="btn btn-primary btn-lg" href="/signup" role="button">Get Started</a>
+            
+            <br><br>
+            <div class="text-left">
+            <br><br><br><br><br><br><br><br><br>
+                <hr>
+                © 2019 GameMems
+            </div>
         </div>
     </div>
-
-
 </body>
 
 </html>
