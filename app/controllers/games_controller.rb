@@ -1,9 +1,14 @@
 class GamesController < ApplicationController
     
     get '/games' do #index view all games
-        redirect_if_not_logged_in
-        @games = current_user.games
-        erb :'/games/index'
+        # redirect_if_not_logged_in
+        if logged_in?
+            @games = current_user.games
+            erb :'/games/index'
+        else
+            flash[:error] = "Need to Log In First!"
+            redirect '/'
+        end
     end
 
     get '/games/new' do #add game 
