@@ -10,7 +10,7 @@ This is a sinatra web app created to keep track of the games individual user pla
 In order to use this app:
 
 1. clone it
-2. `cd GamesMems` if you are not yet in the file 
+2. `cd GamesMems` if you have not yet get into the file 
 3. run `bundle install`
 4. run `rake db:migrate`
 5. then run `shotgun`
