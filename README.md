@@ -3,7 +3,7 @@
 Save and Edit games you've played
 
 * Create errors to user
-  * Get /failure
+  * Flash
 
 * Create a user account
   * Get /signup

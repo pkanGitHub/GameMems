@@ -1,40 +1,71 @@
-<h2>Edit Game</h2>
+<html lang="en">
 
-<form method="post" action="/games/<%= @game.id%>">
-    <input type="hidden" name="_method" value="patch">
-    
-    <label for="name">Game Name:</label>
-    <input type="text" name="name" value="<%= @game.name%>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <br><br>
-    <label for="platform">Select a Platform:</label><br><br>
-        <div class="platform">
-            <select name="platform">
-                <option value="Online Game">Online Game</option>
-                <option value="Mobile Game">Mobile Game</option>
-                <option value="Console Game">Console Game</option>
-                <option value="PC Game">PC Game</option>
-                <option value="Board Game">Board Game</option>
-                <option value="Drinking Game">Drinking Game</option>
-            </select>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+    <title>Edit Game</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">GameMems <i class="fas fa-gamepad"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/games">List <i class="far fa-list-alt"></i></a>
+                </li>
+            </ul>
         </div>
-    <br><br>
-    
-    <label for="mode">Select A Mode:</label><br><br>
-    <input type="radio" name="mode" value="Single Player">Single Player <br>  
-    <input type="radio" name="mode" value="Multiplayer">Multiplayer <br> 
-    <input type="radio" name="mode" value="Massively Multiplayer">Massively Multiplayer <br>
-    <br><br>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Edit Games</h1>
+            <h2 class="lead"></h2>
+            <hr class="my-4">
+            <form method="post" action="/games/<%= @game.id%>">
+                <input type="hidden" name="_method" value="patch">
 
-    <input type="submit" value="Edit">
-</form>
+                <label for="name">Game Name:</label>
+                <input type="text" name="name" value="<%= @game.name%>">
 
-<h4>----OR----</h4>
+                <br><br>
+                <label for="platform">Select a Platform:</label><br>
+                <div class="platform">
+                    <select name="platform">
+                        <option value="N/A">----Select----</option>
+                        <option value="Online Game">Online Game</option>
+                        <option value="Mobile Game">Mobile Game</option>
+                        <option value="Console Game">Console Game</option>
+                        <option value="PC Game">PC Game</option>
+                        <option value="Board Game">Board Game</option>
+                        <option value="Drinking Game">Drinking Game</option>
+                    </select>
+                </div>
+                <br><br>
+                <label for="mode">Select A Mode:</label><br>
+                <input type="radio" name="mode" value="Single Player"> Single Player <br>
+                <input type="radio" name="mode" value="Multiplayer"> Multiplayer <br>
+                <input type="radio" name="mode" value="Massively Multiplayer"> Massively Multiplayer <br>
+                <br><br>
+                <input type="submit" value="Edit"><br><br>
+            </form>
+            <p>-------OR--------</p>
 
-<!-- <h2>Delete Game</h2> -->
-<form method="post" action="/games/<%= @game.id%>/delete">
-    <input type="hidden" id="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete">
-</form>
+            <form method="post" action="/games/<%= @game.id%>/delete">
+                <input type="hidden" id="hidden" name="_method" value="delete">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    </div>
+</body>
 
-<a href="/games">Go Back</a>
+</html>

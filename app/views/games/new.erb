@@ -1,41 +1,62 @@
-<h2>Add A New Game To Your List</h2>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<form method="post" action="/games">
-    
-    <label for="name">Game Name:</label>
-    <input type="text" name="name">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 
-    <br><br>
+    <title>Add Game</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">GameMems <i class="fas fa-gamepad"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/games">List <i class="far fa-list-alt"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <h2 class="display-4">Add A New Game</h2>
+            <hr class="my-4">
+            <form method="post" action="/games">
+            <label for="name">Game Name:</label>
+            <input type="text" name="name">
 
-    <label for="platform">Select a Platform:</label><br><br>
+            <br><br>
+            <label for="platform">Select a Platform:</label><br>
 
-    <div class="platform">
+            <div class="platform">
 
-    <select name="platform">
-      <option value="Online Game">Online Game</option>
-      <option value="Mobile Game">Mobile Game</option>
-      <option value="Console Game">Console Game</option>
-      <option value="PC Game">PC Game</option>
-      <option value="Board Game">Board Game</option>
-      <option value="Drinking Game">Drinking Game</option>
-    </select>
-  </div>
-<!-- 
-    <input type="radio" name="platform" value="Online Game">Online Game <br> 
-    <input type="radio" name="platform" value="Mobile Game">Mobile Game <br>  
-    <input type="radio" name="platform" value="Console Game">Console Game <br>
-    <input type="radio" name="platform" value="PC Game">PC Game <br>  
-    <input type="radio" name="platform" value="Board Game">Board Game <br>
-    <input type="radio" name="platform" value="Drinking Game">Drinking Game <br>   -->
+              <select name="platform">
+                <option value="N/A">----Select----</option>
+                <option value="Online Game">Online Game</option>
+                <option value="Mobile Game">Mobile Game</option>
+                <option value="Console Game">Console Game</option>
+                <option value="PC Game">PC Game</option>
+                <option value="Board Game">Board Game</option>
+                <option value="Drinking Game">Drinking Game</option>
+              </select>
+            </div>
+            <br><br>
+            <label for="mode">Select A Mode:</label><br>
+            <input type="radio" name="mode" value="Single Player"> Single Player <br>  
+            <input type="radio" name="mode" value="Multiplayer"> Multiplayer <br> 
+            <input type="radio" name="mode" value="Massively Multiplayer"> Massively Multiplayer <br>   
+            <br><br>
+            <input type="submit" value="Add">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
 
-    <br><br>
-
-    <label for="mode">Select A Mode:</label><br><br>
-    <input type="radio" name="mode" value="Single Player">Single Player <br>  
-    <input type="radio" name="mode" value="Multiplayer">Multiplayer <br> 
-    <input type="radio" name="mode" value="Massively Multiplayer">Massively Multiplayer <br>   
-
-    <br><br>
-
-    <input type="submit" value="Add">
-</form>
