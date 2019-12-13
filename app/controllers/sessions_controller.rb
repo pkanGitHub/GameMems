@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     get '/signup' do
+        @title = "Signing Up"
         erb :'/sessions/signup'
     end
 
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
     end
 
     get '/login' do
+        @title = "Logging In"
         erb :'/sessions/login'
     end
 

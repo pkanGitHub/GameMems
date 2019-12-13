@@ -17,11 +17,8 @@ In order to use this app:
 
 Everything should be set up and running. Then you simply just put http://localhost:9393  in your web browser
 
-# Contributing
-
-
 # License
-
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
 
 
 

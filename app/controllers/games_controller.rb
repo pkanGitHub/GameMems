@@ -4,6 +4,7 @@ class GamesController < ApplicationController
         # redirect_if_not_logged_in
         if logged_in?
             @games = current_user.games
+            @title = "Game List"
             erb :'/games/index'
         else
             flash[:error] = "Need to Log In First!"
@@ -12,18 +13,18 @@ class GamesController < ApplicationController
     end
 
     get '/games/new' do #add game 
+        @title = "Add Game"
         erb :'/games/new'
     end
 
     post '/games' do #create game
         redirect_if_not_logged_in
         game = Game.new(game_params)
-        if game.save
+        if game.save 
             redirect to '/games'
         else
-            #game already exist
-            @errors = [params.to_s]
-            erb :failure
+            flash[:error] = game.errors.full_messages.join
+            redirect to '/games/new'
         end
     end
 
@@ -31,6 +32,7 @@ class GamesController < ApplicationController
         #move stuff to helper method
         redirect_if_not_logged_in
         set_game
+        @title = "Edit Game"
         erb :'/games/edit'
     end
 
