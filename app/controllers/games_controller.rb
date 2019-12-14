@@ -37,13 +37,12 @@ class GamesController < ApplicationController
     end
 
     patch '/games/:id' do #update a game
-        redirect_if_not_logged_in
         set_game
         if @game.update(game_params)
             redirect '/games'
         else
-            flash[:error] = "Cannot Update"
-            redirect '/games/edit'
+            flash[:error] = "Update Fails"
+            redirect '/games'
         end
     end
 
@@ -60,10 +59,11 @@ class GamesController < ApplicationController
     end
 
     def set_game
-        @game = Game.find_by(id: params[:id])
+        @game = Game.find(params[:id])
         unless @game
             flash[:error] = "Cannot find game ID"
             redirect '/'
         end
     end
+
 end

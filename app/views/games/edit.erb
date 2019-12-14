@@ -14,11 +14,6 @@
     <div class="container">
         <div class="jumbotron">
             <h1 class="display-4">Edit Games</h1>
-            <% if flash[:error] %>
-            <div class="alert alert-warning" role="alert">
-                <div class="error"><%= flash[:error] %></div>
-            </div>
-            <% end %>
             <h2 class="lead"></h2>
             <hr class="my-4">
             <form method="post" action="/games/<%= @game.id%>">

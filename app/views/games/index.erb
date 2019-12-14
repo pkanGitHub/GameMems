@@ -18,6 +18,11 @@
         </ul>
     </div>
     </nav>
+        <% if flash[:error] %>
+            <div class="alert alert-warning" role="alert">
+                <div class="error"><%= flash[:error] %></div>
+            </div>
+            <% end %>
 
         <h1 class="text-center">Your Game List</h1>
         <div style="text-align:center">
