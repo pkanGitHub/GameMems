@@ -30,6 +30,11 @@
         </div>
         <p>
         <h4 class="text-center">*Click On the Game Name To Modify*</h4>
+        <% if flash[:warning] %>
+        <div class= "text-danger text-center">
+            <div class="warning">* <%= flash[:warning] %></div>
+        </div>
+        <% end %>
         <div class="container">
             <div class="row">
                 <table class="table table table-hover table-bordered table-striped">

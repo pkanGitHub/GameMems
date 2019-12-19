@@ -33,6 +33,7 @@ class GamesController < ApplicationController
         redirect_if_not_logged_in
         set_game
         @title = "Edit Game"
+        redirect_if_not_same_user(@game.user_id)
         erb :'/games/edit'
     end
 
@@ -48,6 +49,8 @@ class GamesController < ApplicationController
 
     delete '/games/:id/delete' do
         @game = Game.find_by_id(params[:id])
+        #@game.user_id == current_user.id
+        redirect_if_not_same_user(@game.user_id)
         @game.delete
         redirect "/games"
     end

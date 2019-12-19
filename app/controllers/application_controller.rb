@@ -25,6 +25,13 @@ class ApplicationController < Sinatra::Base
             end
         end
 
+        def redirect_if_not_same_user(user_id)
+            unless user_id == current_user.id 
+                flash[:warning] = "Sorry, No Permission For This Game ID."
+                redirect '/games'
+            end
+        end
+
         def current_user
             User.find(session[:user_id])
         end
