@@ -48,7 +48,7 @@
                     <tbody>
                         <% @games.each do |game| %>
                             <tr>
-                                <td><a href="/games/<%= game.id%>/edit"><%= game.name.titlecase %></a></td>
+                                <td><a href="/games/<%= game.id%>/edit"><%= game.name %></a></td>
                                 <td><%= game.platform %></td>
                                 <td><%= game.mode %></td>
                             </tr>
