@@ -2,6 +2,7 @@ class GamesController < ApplicationController
     
     get '/games' do #index view all games
         # redirect_if_not_logged_in
+        
         if logged_in?
             @games = current_user.games
             @title = "Game List"
@@ -39,6 +40,7 @@ class GamesController < ApplicationController
 
     patch '/games/:id' do #update a game
         set_game
+        redirect_if_not_same_user(@game.user_id)
         if @game.update(game_params)
             redirect '/games'
         else
@@ -62,7 +64,7 @@ class GamesController < ApplicationController
     end
 
     def set_game
-        @game = Game.find(params[:id])
+        @game = Game.find_by_id(params[:id])
         unless @game
             flash[:error] = "Cannot find game ID"
             redirect '/'

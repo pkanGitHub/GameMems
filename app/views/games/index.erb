@@ -29,6 +29,7 @@
             <a href="/games/new"><button type="button" >Add a new game</button></a>
         </div>
         <p>
+       
         <h4 class="text-center">*Click On the Game Name To Modify*</h4>
         <% if flash[:warning] %>
         <div class= "text-danger text-center">
@@ -46,7 +47,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% @games.each do |game| %>
+                            <% @games.each do |game| %>
                             <tr>
                                 <td><a href="/games/<%= game.id%>/edit"><%= game.name %></a></td>
                                 <td><%= game.platform %></td>
